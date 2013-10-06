@@ -246,7 +246,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 420.0, 330.0, 36.0, 20.0 ],
-					"presentation_rect" : [ 371.666687, 326.0, 0.0, 0.0 ],
 					"text" : "*~ 1."
 				}
 
@@ -261,7 +260,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 347.666687, 330.0, 42.0, 20.0 ],
-					"presentation_rect" : [ 266.666687, 326.0, 0.0, 0.0 ],
 					"text" : "*~ 0.8"
 				}
 
@@ -276,7 +274,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 397.0, 240.0, 40.0, 18.0 ],
-					"presentation_rect" : [ 316.0, 236.0, 0.0, 0.0 ],
 					"text" : "crash"
 				}
 
@@ -291,7 +288,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 347.666687, 281.0, 67.0, 20.0 ],
-					"presentation_rect" : [ 266.666687, 277.0, 0.0, 0.0 ],
 					"text" : "instrument"
 				}
 
@@ -306,7 +302,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 420.0, 281.0, 67.0, 20.0 ],
-					"presentation_rect" : [ 371.666687, 277.0, 0.0, 0.0 ],
 					"text" : "instrument"
 				}
 
@@ -321,7 +316,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 468.0, 240.0, 51.0, 18.0 ],
-					"presentation_rect" : [ 419.666687, 236.0, 0.0, 0.0 ],
 					"text" : "cowbell"
 				}
 
@@ -452,8 +446,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 365.375, 225.0, 25.0, 25.0 ],
-									"presentation_rect" : [ 365.375, 226.0, 0.0, 0.0 ]
+									"patching_rect" : [ 365.375, 225.0, 25.0, 25.0 ]
 								}
 
 							}
@@ -464,8 +457,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 300.75, 225.0, 25.0, 25.0 ],
-									"presentation_rect" : [ 300.75, 226.0, 0.0, 0.0 ]
+									"patching_rect" : [ 300.75, 225.0, 25.0, 25.0 ]
 								}
 
 							}
@@ -476,8 +468,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 331.625, 225.0, 25.0, 25.0 ],
-									"presentation_rect" : [ 331.625, 226.0, 0.0, 0.0 ]
+									"patching_rect" : [ 331.625, 225.0, 25.0, 25.0 ]
 								}
 
 							}
