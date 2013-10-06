@@ -3,7 +3,9 @@ from pygame import midi
 
 instrNums = {"kick": 1,
             "snare": 2,
-            "hihat": 3}
+            "hihat": 3,
+            "crash": 4,
+          "cowbell": 5}
 genreNums = {"simple": 1,
               "blues": 2,
                "rock": 3,
@@ -37,7 +39,7 @@ def setInstrument(name, value):
 def beat(index):
   sixteenth = index % 16
   for key in instruments:
-    if rhythms[key][sixteenth] != 0:
+    if rhythms[key][sixteenth] != '0':
       sendNote(key, rhythms[key][sixteenth])
 
 def sendNote(name, value):
@@ -49,6 +51,9 @@ def setGenre(name):
 
 def setKey(note):
   midi_out.write_short(0x90, 101, keyNums[note])
+
+def setTempo(tempo):
+    midi_out.write_short(0x90, 102, tempo)
 
 def end():
   midi.quit()
