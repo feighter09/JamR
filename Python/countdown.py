@@ -1,89 +1,104 @@
 from dragonfly.all import Grammar, CompoundRule
 from time import *
+from threading import Timer
 from datetime import datetime
 import pythoncom, time
-# import sequencer
+import playbackController as pc
 
-class tempoOne(CompoundRule):
-    spec = "one"
-    def _process_recognition(self, node, extras):
-        print "One"
-        one()
+global latencyBuffer
+latencyBuffer = 1.0
+global times
+times = {}
+global timers
+timers = {}
+global tempoGuess
+tempoGuess = 0.0
 
-class tempoTwo(CompoundRule):
-    spec = "two"
-    def _process_recognition(self, node, extras):
-        print "Two"
-        two()
-
-class tempoThree(CompoundRule):
-    spec = "three"
-    def _process_recognition(self, node, extras):
-        print "Three"
-        three()
-
-class tempoFour(CompoundRule):
-    spec = "four"
-    def _process_recognition(self, node, extras):
-        print "four"
-        four()
+def computeTempo():
+  global tempoGuess, times
+  deltas = []
+  for i, later in times.iteritems():
+    for j, earlier in times.iteritems():
+      if i > j:
+        diff = later - earlier
+        total = diff.seconds + (float(diff.microseconds) / 1000000)
+        deltas.append(total / float(i - j))
+  ave = avg(deltas)
+  tempoGuess = ave
 
 def avg(deltas):
-    total = 0
-    for delta in deltas:
-        total += delta
-    return float(total) / len(deltas)
+  total = 0
+  for delta in deltas:
+    total += delta
+  return float(total) / len(deltas)
 
-def startLoop():
-    beat = float(avg(timeDeltas)) / 4
-    i = 0
-    while True:    
-        sendBeat(i)
-        if (i % 4) == 1:
-            print "Beat"
-        else:
-            print "Beat / 4"
-        sleep(beat)
-        i += 1
+def tryTimer(index):
+  global tempoGuess, latencyBuffer, timers
+  for i, timer in timers.iteritems():
+    timer.cancel()
+  t = float(4 - index) * tempoGuess
+  timers[index] = Timer(max(t - latencyBuffer, 0), Tempo().startLoop)
+  timers[index].start()
 
-def sendBeat(num):
-    # sequencer.beat(num)
-    print num
+class Tempo():
 
-def one():
-    global first, timeDeltas
-    first = datetime.now()
-    timeDeltas = []
+  class One(CompoundRule):
+    spec = "one"
 
-def two():
-    global second
-    second = datetime.now()
-    delta = second - first
-    total = delta.seconds + (float(delta.microseconds) / 1000000)
-    timeDeltas.append(total)
+    def _process_recognition(self, node, extras):
+      print "One"
+      global times
+      times[0] = datetime.now()
 
-def three():
-    global third
-    third = datetime.now()
-    delta = third - second
-    total = delta.seconds + (float(delta.microseconds) / 1000000)
-    timeDeltas.append(total)
+  class Two(CompoundRule):
+    spec = "(two | Two)"
+    
+    def _process_recognition(self, node, extras):
+      print "Two"
+      global times
+      times[1] = datetime.now()
+      if len(times) >= 2:
+        computeTempo()
+        tryTimer(1)
 
-def four():
-    global fourth
-    fourth = datetime.now()
-    delta = fourth - third
-    total = delta.seconds + (float(delta.microseconds) / 1000000)
-    timeDeltas.append(total)
-    startLoop()
+  class Three(CompoundRule):
+    spec = "three"
+    def _process_recognition(self, node, extras):
+      print "Three"
+      global times
+      times[2] = datetime.now()
+      if len(times) >= 2:
+        computeTempo()
+        tryTimer(2)
 
-grammar = Grammar("JamR")
-grammar.add_rule(tempoOne())
-grammar.add_rule(tempoTwo())
-grammar.add_rule(tempoThree())
-grammar.add_rule(tempoFour())
+  class Four(CompoundRule):
+    spec = "four"
+    def _process_recognition(self, node, extras):
+      print "Four"
+      times[3] = datetime.now()
+      if len(times) >= 2:
+        computeTempo()
+        tryTimer(3)
+
+  def startLoop(self):
+    pc.setTempo(tempoGuess)
+    pc.setGenre("rock")
+    pc.loop()
+
+    grammar = Grammar("countdown")
+    grammar.add_rule(Tempo().One())
+    grammar.add_rule(Tempo().Two())
+    grammar.add_rule(Tempo().Three())
+    grammar.add_rule(Tempo().Four())
+    grammar.unload()
+
+grammar = Grammar("countdown")
+grammar.add_rule(Tempo().One())
+grammar.add_rule(Tempo().Two())
+grammar.add_rule(Tempo().Three())
+grammar.add_rule(Tempo().Four())
 grammar.load()
 
 while True:
-    pythoncom.PumpWaitingMessages()
-    time.sleep(.1)
+  pythoncom.PumpWaitingMessages()
+  time.sleep(.1)
