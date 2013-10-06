@@ -3,11 +3,12 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 6,
-			"minor" : 0,
-			"revision" : 4
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 728.0, 252.0, 622.0, 570.0 ],
+		"rect" : [ 384.0, 283.0, 622.0, 570.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -48,7 +49,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 119.666672, 280.0, 67.0, 20.0 ],
 					"text" : "instrument"
 				}
@@ -76,9 +77,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 187.666687, 280.0, 67.0, 20.0 ],
-					"presentation_rect" : [ 186.0, 280.0, 0.0, 0.0 ],
 					"text" : "instrument"
 				}
 
@@ -91,7 +91,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 267.0, 280.0, 67.0, 20.0 ],
 					"text" : "instrument"
 				}
@@ -164,11 +164,12 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 0,
-							"revision" : 4
+							"minor" : 1,
+							"revision" : 0,
+							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 44.0, 186.0, 1263.0, 693.0 ],
+						"rect" : [ 249.0, 126.0, 1258.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -187,24 +188,39 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-11",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 1011.0, 155.5, 69.0, 20.0 ],
+									"text" : "s setGenre"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
 									"id" : "obj-42",
 									"maxclass" : "newobj",
 									"numinlets" : 0,
-									"numoutlets" : 6,
-									"outlettype" : [ "", "", "", "", "", "" ],
+									"numoutlets" : 7,
+									"outlettype" : [ "", "", "", "", "", "", "" ],
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 6,
-											"minor" : 0,
-											"revision" : 4
+											"minor" : 1,
+											"revision" : 0,
+											"architecture" : "x86"
 										}
 ,
-										"rect" : [ 534.0, 188.0, 640.0, 480.0 ],
+										"rect" : [ 631.0, 374.0, 640.0, 480.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -225,6 +241,59 @@
 										"tags" : "",
 										"visible" : 1,
 										"boxes" : [ 											{
+												"box" : 												{
+													"comment" : "set hihat",
+													"id" : "obj-1",
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 325.375, 192.0, 25.0, 25.0 ],
+													"presentation_rect" : [ 325.375, 197.0, 0.0, 0.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 502.0, 305.0, 59.0, 20.0 ],
+													"text" : "print midi"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "int" ],
+													"patching_rect" : [ 495.0, 236.0, 42.0, 20.0 ],
+													"text" : "midiin"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 353.0, 71.0, 52.0, 20.0 ],
+													"text" : "midiinfo"
+												}
+
+											}
+, 											{
 												"box" : 												{
 													"fontname" : "Arial",
 													"fontsize" : 12.0,
@@ -258,11 +327,11 @@
 													"fontsize" : 12.0,
 													"id" : "obj-3",
 													"maxclass" : "newobj",
-													"numinlets" : 7,
-													"numoutlets" : 7,
-													"outlettype" : [ "", "", "", "", "", "", "" ],
-													"patching_rect" : [ 139.0, 155.0, 204.25, 20.0 ],
-													"text" : "route 1 2 3 4 5 6"
+													"numinlets" : 8,
+													"numoutlets" : 8,
+													"outlettype" : [ "", "", "", "", "", "", "", "" ],
+													"patching_rect" : [ 139.0, 155.0, 235.125, 20.0 ],
+													"text" : "route 1 2 3 4 5 6 100"
 												}
 
 											}
@@ -349,6 +418,15 @@
  ],
 										"lines" : [ 											{
 												"patchline" : 												{
+													"destination" : [ "obj-16", 0 ],
+													"disabled" : 0,
+													"hidden" : 0,
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
 													"destination" : [ "obj-5", 1 ],
 													"disabled" : 0,
 													"hidden" : 0,
@@ -363,6 +441,15 @@
 													"disabled" : 0,
 													"hidden" : 0,
 													"source" : [ "obj-28", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"disabled" : 0,
+													"hidden" : 0,
+													"source" : [ "obj-3", 6 ]
 												}
 
 											}
@@ -439,22 +526,21 @@
 												}
 
 											}
- ],
-										"dependency_cache" : [  ]
+ ]
 									}
 ,
-									"patching_rect" : [ 349.5, 111.0, 568.625, 20.0 ],
+									"patching_rect" : [ 349.5, 111.0, 678.549927, 20.0 ],
 									"saved_object_attributes" : 									{
-										"globalpatchername" : "",
-										"fontface" : 0,
-										"default_fontsize" : 12.0,
-										"fontsize" : 12.0,
-										"description" : "",
-										"fontname" : "Arial",
 										"default_fontface" : 0,
+										"default_fontname" : "Arial",
+										"default_fontsize" : 12.0,
+										"description" : "",
 										"digest" : "",
-										"tags" : "",
-										"default_fontname" : "Arial"
+										"fontface" : 0,
+										"fontname" : "Arial",
+										"fontsize" : 12.0,
+										"globalpatchername" : "",
+										"tags" : ""
 									}
 ,
 									"text" : "p command"
@@ -515,8 +601,9 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 6,
-											"minor" : 0,
-											"revision" : 4
+											"minor" : 1,
+											"revision" : 0,
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 249.0, 303.0, 640.0, 480.0 ],
@@ -783,40 +870,21 @@
 												}
 
 											}
- ],
-										"dependency_cache" : [ 											{
-												"name" : "kickRhythms.txt",
-												"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-												"type" : "TEXT",
-												"implicit" : 1
-											}
-, 											{
-												"name" : "snareRhythms.txt",
-												"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-												"type" : "TEXT",
-												"implicit" : 1
-											}
-, 											{
-												"name" : "hatRhythms.txt",
-												"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-												"type" : "TEXT",
-												"implicit" : 1
-											}
  ]
 									}
 ,
 									"patching_rect" : [ 680.275024, 325.0, 345.774963, 20.0 ],
 									"saved_object_attributes" : 									{
-										"globalpatchername" : "",
-										"fontface" : 0,
-										"default_fontsize" : 12.0,
-										"fontsize" : 12.0,
-										"description" : "",
-										"fontname" : "Arial",
 										"default_fontface" : 0,
+										"default_fontname" : "Arial",
+										"default_fontsize" : 12.0,
+										"description" : "",
 										"digest" : "",
-										"tags" : "",
-										"default_fontname" : "Arial"
+										"fontface" : 0,
+										"fontname" : "Arial",
+										"fontsize" : 12.0,
+										"globalpatchername" : "",
+										"tags" : ""
 									}
 ,
 									"text" : "p setPatterns"
@@ -957,8 +1025,9 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 6,
-											"minor" : 0,
-											"revision" : 4
+											"minor" : 1,
+											"revision" : 0,
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 460.0, 282.0, 823.0, 663.0 ],
@@ -1079,6 +1148,7 @@
 												"box" : 												{
 													"fontname" : "Arial",
 													"fontsize" : 12.0,
+													"frgb" : 0.0,
 													"id" : "obj-59",
 													"linecount" : 2,
 													"maxclass" : "comment",
@@ -1209,22 +1279,21 @@
 												}
 
 											}
- ],
-										"dependency_cache" : [  ]
+ ]
 									}
 ,
 									"patching_rect" : [ 569.349976, 307.0, 96.0, 20.0 ],
 									"saved_object_attributes" : 									{
-										"globalpatchername" : "",
-										"fontface" : 0,
-										"default_fontsize" : 12.0,
-										"fontsize" : 12.0,
-										"description" : "",
-										"fontname" : "Arial",
 										"default_fontface" : 0,
+										"default_fontname" : "Arial",
+										"default_fontsize" : 12.0,
+										"description" : "",
 										"digest" : "",
-										"tags" : "",
-										"default_fontname" : "Arial"
+										"fontface" : 0,
+										"fontname" : "Arial",
+										"fontsize" : 12.0,
+										"globalpatchername" : "",
+										"tags" : ""
 									}
 ,
 									"text" : "p tempoHandler"
@@ -1363,6 +1432,15 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-11", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-42", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-12", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
@@ -1415,40 +1493,21 @@
 								}
 
 							}
- ],
-						"dependency_cache" : [ 							{
-								"name" : "kickRhythms.txt",
-								"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-								"type" : "TEXT",
-								"implicit" : 1
-							}
-, 							{
-								"name" : "snareRhythms.txt",
-								"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-								"type" : "TEXT",
-								"implicit" : 1
-							}
-, 							{
-								"name" : "hatRhythms.txt",
-								"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-								"type" : "TEXT",
-								"implicit" : 1
-							}
  ]
 					}
 ,
 					"patching_rect" : [ 103.666672, 26.0, 83.0, 20.0 ],
 					"saved_object_attributes" : 					{
-						"globalpatchername" : "",
-						"fontface" : 0,
-						"default_fontsize" : 12.0,
-						"fontsize" : 12.0,
-						"description" : "",
-						"fontname" : "Arial",
 						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"default_fontsize" : 12.0,
+						"description" : "",
 						"digest" : "",
-						"tags" : "",
-						"default_fontname" : "Arial"
+						"fontface" : 0,
+						"fontname" : "Arial",
+						"fontsize" : 12.0,
+						"globalpatchername" : "",
+						"tags" : ""
 					}
 ,
 					"text" : "p handleInput"
@@ -1515,8 +1574,9 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 6,
-							"minor" : 0,
-							"revision" : 4
+							"minor" : 1,
+							"revision" : 0,
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 0.0, 116.0, 1283.0, 857.0 ],
@@ -1570,6 +1630,7 @@
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
+									"frgb" : 0.0,
 									"id" : "obj-45",
 									"maxclass" : "comment",
 									"numinlets" : 1,
@@ -1619,6 +1680,7 @@
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
+									"frgb" : 0.0,
 									"id" : "obj-37",
 									"maxclass" : "comment",
 									"numinlets" : 1,
@@ -1669,6 +1731,7 @@
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
+									"frgb" : 0.0,
 									"id" : "obj-14",
 									"maxclass" : "comment",
 									"numinlets" : 1,
@@ -1682,6 +1745,7 @@
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
+									"frgb" : 0.0,
 									"id" : "obj-13",
 									"maxclass" : "comment",
 									"numinlets" : 1,
@@ -1695,6 +1759,7 @@
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
+									"frgb" : 0.0,
 									"id" : "obj-12",
 									"maxclass" : "comment",
 									"numinlets" : 1,
@@ -1961,22 +2026,21 @@
 								}
 
 							}
- ],
-						"dependency_cache" : [  ]
+ ]
 					}
 ,
 					"patching_rect" : [ 83.666672, 79.0, 123.0, 20.0 ],
 					"saved_object_attributes" : 					{
-						"globalpatchername" : "",
-						"fontface" : 0,
-						"default_fontsize" : 12.0,
-						"fontsize" : 12.0,
-						"description" : "",
-						"fontname" : "Arial",
 						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"default_fontsize" : 12.0,
+						"description" : "",
 						"digest" : "",
-						"tags" : "",
-						"default_fontname" : "Arial"
+						"fontface" : 0,
+						"fontname" : "Arial",
+						"fontsize" : 12.0,
+						"globalpatchername" : "",
+						"tags" : ""
 					}
 ,
 					"text" : "p beatTrigger"
@@ -2130,39 +2194,8 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "kickRhythms.txt",
-				"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-				"patcherrelativepath" : "",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "snareRhythms.txt",
-				"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-				"patcherrelativepath" : "",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "hatRhythms.txt",
-				"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-				"patcherrelativepath" : "",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "instrument.maxpat",
-				"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-				"patcherrelativepath" : "",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "Rhythmizer.maxpat",
-				"bootpath" : "/Users/josephconstan/Code/Conductor/Max",
-				"patcherrelativepath" : "",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "omsinfo.mxe",
+				"type" : "iLaF"
 			}
  ]
 	}

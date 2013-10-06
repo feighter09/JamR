@@ -8,6 +8,19 @@ genreNums = {"simple": 1,
               "blues": 2,
                "rock": 3,
          "electronic": 4}
+keyNums = 
+{"a": 0,
+"a#": 1,
+"b": 2,
+"c": 3,
+"c#": 4,
+"d": 5,
+"d#": 6,
+"e": 7,
+"f": 8,
+"f#": 9,
+"g": 10,
+"g#": 11}
 rhythms = {}
 key = 0 #a
 
@@ -34,8 +47,8 @@ def sendNote(name, value):
 def setGenre(name):
   midi_out.write_short(0x90, 100, genreNums[name])
 
-def setKey(letter):
-  key = ord(letter) - ord('a')
+def setKey(note):
+  midi_out.write_short(0x90, 101, keyNums[note])
 
 def end():
   midi.quit()
