@@ -1,4 +1,4 @@
-# import sequencer
+import sequencer
 from threading import Timer
 
 """
@@ -14,23 +14,23 @@ trackVolume = {
                 "hihat": 0
               }
 timer = 0
+tempo = 0.0
+i = 0
 
 def setGenre(genre):
-  print "something"
-  # sequencer.setGenre(genre)
+  sequencer.setGenre(genre)
 
 def setTempo(newTempo):
   global tempo
   tempo = newTempo
-  # sequencer.setTempo(tempo)
+  sequencer.setTempo(newTempo)
 
 def setProgression(newProgression):
-  progression = newProgression
+  print "progression"
   # sequencer.setProgression
 
 def setKey(newKey):
-  key = newKey
-  # sequencer.setKey(key)
+  sequencer.setKey(key)
 
 def increaseTrack(track):
   trackVolume[track] += 1
@@ -38,19 +38,13 @@ def increaseTrack(track):
 def decreaseTrack(track):
   trackVolume[track] -= 1
 
-def startLoop():
-  global tempo
-  Timer(tempo, loop).start()
-
 def loop():
-  global tempo
+  global tempo, timer, i
   print "beat"
   timer = Timer(tempo, loop).start()
-  # sequencer.beat(i)
+  sequencer.beat(i)
+  i += 1
 
 def stopLoop():
-  loop = False
-
-def sendBeat(num):
-  # sequencer.beat(num)
-  print num
+  global timer
+  timer.cancel()

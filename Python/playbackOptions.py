@@ -3,6 +3,7 @@ from dragonfly.all import Grammar
 from time import *
 from datetime import datetime
 import pythoncom, time
+import playbackController as pc
 
 class GenreRule(CompoundRule):
   spec = "Let's [play] [some] <genre>"
@@ -15,7 +16,7 @@ class GenreRule(CompoundRule):
            ]
 
   def _process_recognition(self, node, extras):
-    # setGenre(extras["genre"])
+    pc.setGenre(extras["genre"])
     print "You got it! Playing some %s" % genre
 
 class IncTrackRule(CompoundRule):
@@ -32,7 +33,7 @@ class IncTrackRule(CompoundRule):
 
   def _process_recognition(self, node, extras):
     print "You got it! More %s" % extras["track"]
-    # moreTrack(extras["track"])
+    pc.increaseTrack(extras["track"])
 
 class DecTrackRule(CompoundRule):
 
@@ -48,7 +49,7 @@ class DecTrackRule(CompoundRule):
 
   def _process_recognition(self, node, extras):
     print "You got it! Less %s" % extras["track"]
-    # lessTrack(extras["track"])
+    pc.decreaseTrack(extras["track"])
 
 class ChangeKeyRule(CompoundRule):
 
@@ -67,7 +68,7 @@ class ChangeKeyRule(CompoundRule):
 
   def _process_recognition(self, node, extras):
     print "You got it! Changing to the key of %s" % extras["key"]
-    # setKey(extras["key"])
+    pc.setKey(extras["key"])
 
 class ChangeProgressionRule(CompoundRule):
 
@@ -129,7 +130,3 @@ grammar.add_rule(IncTrackRule())
 grammar.add_rule(DecTrackRule())
 grammar.add_rule(ChangeKeyRule())
 grammar.load()
-
-while True:
-  pythoncom.PumpWaitingMessages()
-  time.sleep(.1)
